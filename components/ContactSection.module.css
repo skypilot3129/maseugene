@@ -1,0 +1,217 @@
+.contact {
+    position: relative;
+    background-color: var(--section-bg-clean);
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    margin-bottom: var(--spacing-md);
+}
+
+.ctaButtons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-xl);
+}
+
+.installPrompt {
+    margin: var(--spacing-2xl) auto var(--spacing-lg);
+    max-width: 500px;
+}
+
+.installCard {
+    background: linear-gradient(135deg, rgba(197, 160, 89, 0.1) 0%, rgba(197, 160, 89, 0.05) 100%);
+    border: 1px solid var(--color-gold);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.installTitle {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-xs);
+}
+
+.installDesc {
+    font-size: 0.9375rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.footer {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
+    position: relative;
+    z-index: 1;
+}
+
+.footerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.footerBrand {
+    text-align: left;
+}
+
+.brandName {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--color-navy);
+}
+
+.brandTagline {
+    font-size: 0.875rem;
+    margin: var(--spacing-xs) 0 0;
+    opacity: 0.6;
+}
+
+.footerLinks {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.footerLink {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--color-navy);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.footerLink::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-gold);
+    transition: width 0.3s;
+}
+
+.footerLink:hover {
+    opacity: 1;
+    color: var(--color-gold);
+}
+
+.footerLink:hover::after {
+    width: 100%;
+}
+
+.copyright {
+    font-size: 0.875rem;
+    opacity: 0.5;
+    margin: 0;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(26, 35, 58, 0.1);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .ctaButtons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-sm);
+    }
+
+    .ctaButtons a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .installCard {
+        padding: var(--spacing-md);
+    }
+
+    .installTitle {
+        font-size: 1.125rem;
+    }
+
+    .installDesc {
+        font-size: 0.875rem;
+    }
+
+    .footerContent {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+
+    .footerBrand {
+        text-align: center;
+    }
+
+    .brandName {
+        font-size: 1.25rem;
+    }
+
+    .footerLinks {
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+
+    .footerLink {
+        font-size: 0.875rem;
+    }
+
+    .copyright {
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .installCard {
+        padding: var(--spacing-sm);
+    }
+
+    .installTitle {
+        font-size: 1rem;
+    }
+
+    .installDesc {
+        font-size: 0.8125rem;
+    }
+
+    .brandName {
+        font-size: 1.125rem;
+    }
+
+    .brandTagline {
+        font-size: 0.8125rem;
+    }
+
+    .footerLinks {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .copyright {
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,132 @@
+.philosophy {
+    position: relative;
+    background-color: var(--section-bg-clean);
+    transition: background-color 0.3s ease;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    max-width: 540px;
+}
+
+.title {
+    margin: var(--spacing-sm) 0;
+}
+
+.philosophy_text {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.0625rem;
+    line-height: 1.9;
+}
+
+.quote {
+    margin-top: var(--spacing-lg);
+    padding-left: var(--spacing-md);
+    border-left: 3px solid var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--color-navy);
+    opacity: 0.9;
+}
+
+.values {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.valueCard {
+    position: relative;
+    border-left: 2px solid var(--color-gold);
+    padding-left: var(--spacing-md);
+}
+
+.valueCard h4 {
+    margin: var(--spacing-xs) 0;
+    font-size: 1.25rem;
+}
+
+.valueCard p {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.valueNumber {
+    position: absolute;
+    top: var(--spacing-md);
+    left: calc(-1 * var(--spacing-md) - 16px);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-gold);
+    color: var(--color-ivory);
+    border-radius: 50%;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+@media (max-width: 968px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .content {
+        max-width: 100%;
+    }
+
+    .quote {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        gap: var(--spacing-md);
+    }
+
+    .philosophy_text {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .quote {
+        font-size: 1.0625rem;
+        padding-left: var(--spacing-sm);
+        margin-top: var(--spacing-md);
+    }
+
+    .valueCard h4 {
+        font-size: 1.125rem;
+    }
+
+    .valueCard p {
+        font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .valueNumber {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8125rem;
+        left: calc(-1 * var(--spacing-md) - 14px);
+    }
+
+    .quote {
+        font-size: 1rem;
+    }
+}

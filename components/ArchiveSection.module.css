@@ -1,0 +1,430 @@
+.archive {
+    padding-bottom: 0;
+    overflow: hidden;
+    background: var(--section-bg-textured);
+    transition: background-color 0.3s ease;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.filterContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.filterButton {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-card-bg);
+    color: var(--color-foreground);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filterButton:hover {
+    border-color: var(--color-gold);
+    background: var(--color-gold);
+    color: var(--color-ivory);
+}
+
+.filterButton.active {
+    background: var(--gradient-gold);
+    border-color: var(--color-gold);
+    color: var(--color-ivory);
+    box-shadow: var(--shadow-glow);
+}
+
+.scrollWrapper {
+    position: relative;
+}
+
+.scrollButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-card-bg);
+    color: var(--color-foreground);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scrollButton:hover {
+    background: var(--color-gold);
+    color: var(--color-ivory);
+    border-color: var(--color-gold);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: var(--shadow-glow);
+}
+
+.scrollButtonLeft {
+    left: -28px;
+}
+
+.scrollButtonRight {
+    right: -28px;
+}
+
+/* Dark mode scroll button styles */
+[data-theme="dark"] .scrollButton {
+    background: var(--color-card-bg);
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+    box-shadow: 0 4px 20px rgba(232, 198, 128, 0.2);
+}
+
+[data-theme="dark"] .scrollButton:hover {
+    background: var(--color-gold);
+    color: var(--color-navy);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 30px rgba(232, 198, 128, 0.4);
+}
+
+.scrollContainer {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--spacing-lg) 0;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.scrollContainer::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.projectsWrapper {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-md);
+}
+
+.projectCard {
+    min-width: 600px;
+    max-width: 600px;
+    background: var(--color-ivory);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition-smooth);
+    flex-shrink: 0;
+}
+
+.projectCard:hover {
+    box-shadow: var(--shadow-large);
+    transform: translateY(-8px);
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0eef5 0%, #e8e6f0 100%);
+}
+
+.projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.imagePlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.projectIcon {
+    font-size: 4rem;
+}
+
+.projectType {
+    color: var(--color-ivory);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-gold);
+    transform-origin: right;
+    z-index: 2;
+}
+
+.projectInfo {
+    padding: var(--spacing-lg);
+}
+
+.client {
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.projectTitle {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-foreground);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-foreground);
+    opacity: 0.8;
+    letter-spacing: 0.05em;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid rgba(26, 35, 58, 0.1);
+    border-bottom: 1px solid rgba(26, 35, 58, 0.1);
+}
+
+.metric {
+    text-align: center;
+}
+
+.metricLabel {
+    font-size: 0.875rem;
+    margin-top: var(--spacing-xs);
+    opacity: 0.7;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.details h5 {
+    font-size: 0.875rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-xs);
+}
+
+.details p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.testimonial {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(197, 160, 89, 0.05);
+    border-left: 3px solid var(--color-gold);
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--color-foreground);
+    opacity: 0.9;
+}
+
+.caseStudyButton {
+    display: block;
+    width: 100%;
+    margin-top: var(--spacing-md);
+    padding: 0.875rem;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.caseStudyButton:hover {
+    background: var(--color-gold);
+    color: var(--color-ivory);
+    border-color: var(--color-gold);
+}
+
+.endSpacer {
+    min-width: 200px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .header {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .filterContainer {
+        gap: 0.5rem;
+    }
+
+    .filterButton {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+
+    .scrollButton {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+
+    .scrollButtonLeft {
+        left: 10px;
+    }
+
+    .scrollButtonRight {
+        right: 10px;
+    }
+
+    .projectCard {
+        min-width: 85vw;
+        max-width: 85vw;
+    }
+
+    .imageWrapper {
+        height: 240px;
+    }
+
+    .projectIcon {
+        font-size: 3rem;
+    }
+
+    .projectInfo {
+        padding: var(--spacing-md);
+    }
+
+    .projectTitle {
+        font-size: 1.5rem;
+    }
+
+    .metrics {
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .filterButton {
+        padding: 0.5rem 1rem;
+        font-size: 0.8125rem;
+    }
+
+    .scrollButton {
+        width: 36px;
+        height: 36px;
+        font-size: 1.125rem;
+    }
+
+    .scrollButtonLeft {
+        left: 5px;
+    }
+
+    .scrollButtonRight {
+        right: 5px;
+    }
+
+    .projectCard {
+        min-width: 90vw;
+        max-width: 90vw;
+    }
+
+    .imageWrapper {
+        height: 200px;
+    }
+
+    .projectIcon {
+        font-size: 2.5rem;
+    }
+
+    .projectInfo {
+        padding: var(--spacing-sm);
+    }
+
+    .client {
+        font-size: 0.8125rem;
+    }
+
+    .projectTitle {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .tag {
+        font-size: 0.6875rem;
+        padding: 0.25rem 0.625rem;
+    }
+
+    .metrics {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        padding: var(--spacing-sm) 0;
+    }
+
+    .details p {
+        font-size: 0.875rem;
+    }
+
+    .testimonial {
+        font-size: 0.9375rem;
+        padding: var(--spacing-sm);
+    }
+}

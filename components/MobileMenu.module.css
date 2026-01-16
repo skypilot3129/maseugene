@@ -1,0 +1,308 @@
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1003;
+    position: relative;
+}
+
+.hamburgerLine {
+    width: 24px;
+    height: 2px;
+    background: var(--color-foreground);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.hamburgerLine:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+/* Animated hamburger to X */
+.hamburger.isOpen .hamburgerLine:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.isOpen .hamburgerLine:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.hamburger.isOpen .hamburgerLine:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Backdrop */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(26, 35, 58, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1001;
+}
+
+/* Menu Panel */
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    width: 85%;
+    max-width: 400px;
+    height: 100vh;
+    background: linear-gradient(135deg,
+            var(--color-ivory) 0%,
+            #FAF9F5 100%);
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.3);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.menuHeader {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    background: linear-gradient(180deg,
+            rgba(253, 252, 248, 0.8) 0%,
+            transparent 100%);
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logoMain {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    letter-spacing: -0.02em;
+}
+
+.logoSub {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-top: 0.375rem;
+    font-weight: 500;
+}
+
+/* Navigation */
+.menuNav {
+    flex: 1;
+    padding: var(--spacing-lg) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.menuLink {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 3px solid transparent;
+    position: relative;
+    letter-spacing: -0.01em;
+}
+
+.menuLink::after {
+    content: '';
+    position: absolute;
+    left: var(--spacing-lg);
+    right: var(--spacing-lg);
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(197, 160, 89, 0.1),
+            transparent);
+}
+
+.menuLink:hover {
+    color: var(--color-gold);
+    background: linear-gradient(90deg,
+            rgba(197, 160, 89, 0.08) 0%,
+            rgba(197, 160, 89, 0.03) 100%);
+    border-left-color: var(--color-gold);
+    transform: translateX(4px);
+}
+
+.menuLink:active {
+    background: rgba(197, 160, 89, 0.15);
+}
+
+/* Menu Footer */
+.menuFooter {
+    padding: var(--spacing-lg);
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(253, 252, 248, 0.8) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.toggleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+}
+
+.ctaButton {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 2rem;
+    background: var(--color-gold);
+    color: var(--color-navy);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
+    display: inline-block;
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(197, 160, 89, 0.5);
+}
+
+.ctaButton:active {
+    transform: translateY(0);
+}
+
+/* Decorative Elements */
+.menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(197, 160, 89, 0.3) 50%,
+            transparent 100%);
+}
+
+/* Show hamburger on mobile */
+@media (max-width: 968px) {
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: var(--spacing-md);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .menu {
+        width: 90%;
+    }
+
+    .menuLink {
+        font-size: 1.125rem;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .logoMain {
+        font-size: 1.75rem;
+    }
+
+    .logoSub {
+        font-size: 0.6875rem;
+    }
+}
+
+/* Dark mode enhancements */
+[data-theme="dark"] .menu {
+    background: linear-gradient(135deg,
+            var(--color-navy) 0%,
+            #1a2540 100%);
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .menuHeader {
+    border-bottom-color: rgba(232, 198, 128, 0.2);
+    background: linear-gradient(180deg,
+            rgba(26, 35, 58, 0.8) 0%,
+            transparent 100%);
+}
+
+[data-theme="dark"] .backdrop {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+[data-theme="dark"] .logoMain {
+    color: var(--color-ivory);
+}
+
+[data-theme="dark"] .logoSub {
+    color: #E8C680;
+}
+
+[data-theme="dark"] .menuLink {
+    color: rgba(253, 252, 248, 0.9);
+}
+
+[data-theme="dark"] .menuLink::after {
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(232, 198, 128, 0.1),
+            transparent);
+}
+
+[data-theme="dark"] .menuLink:hover {
+    color: #E8C680;
+    background: linear-gradient(90deg,
+            rgba(232, 198, 128, 0.1) 0%,
+            rgba(232, 198, 128, 0.05) 100%);
+    border-left-color: #E8C680;
+}
+
+[data-theme="dark"] .menuLink:active {
+    background: rgba(232, 198, 128, 0.2);
+}
+
+[data-theme="dark"] .menuFooter {
+    border-top-color: rgba(232, 198, 128, 0.2);
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(26, 35, 58, 0.8) 100%);
+}
+
+[data-theme="dark"] .menu::before {
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(232, 198, 128, 0.3) 50%,
+            transparent 100%);
+}

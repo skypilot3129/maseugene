@@ -1,0 +1,39 @@
+.toggle {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 0.25rem;
+}
+
+.langButton {
+    padding: 0.5rem 0.875rem;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    opacity: 0.6;
+}
+
+.langButton:hover {
+    opacity: 1;
+}
+
+.langButton.active {
+    background: var(--color-gold);
+    color: var(--color-ivory);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .langButton {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.8125rem;
+    }
+}

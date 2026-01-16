@@ -1,0 +1,181 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: var(--spacing-md) 0;
+    transition: var(--transition-smooth);
+    backdrop-filter: blur(10px);
+    background: rgba(253, 252, 248, 0.05);
+    overflow: visible;
+}
+
+.scrolled {
+    box-shadow: var(--shadow-soft);
+    background: rgba(253, 252, 248, 0.98);
+}
+
+.scrolled .logoMain {
+    color: var(--color-navy);
+}
+
+.scrolled .navLink {
+    color: var(--color-navy);
+}
+
+.navContainer {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    line-height: 1.2;
+}
+
+.logoMain {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-ivory);
+    transition: color 0.3s ease;
+}
+
+.logoSub {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+}
+
+.navLinks {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.navLink {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: rgba(253, 252, 248, 0.9);
+    text-decoration: none;
+    opacity: 0.9;
+    transition: var(--transition-smooth);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-gold);
+    transition: width 0.3s ease;
+}
+
+.navLink:hover {
+    opacity: 1;
+    color: var(--color-gold);
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+.navActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.accentLine {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--color-gold),
+            transparent);
+    transform-origin: left;
+}
+
+@media (max-width: 968px) {
+    .navLinks {
+        display: none;
+    }
+
+    .navActions {
+        display: none;
+    }
+
+    .navContainer {
+        position: relative;
+    }
+
+    .logo {
+        margin: 0;
+        flex: 1;
+        text-align: center;
+    }
+
+    .logoMain {
+        font-size: 1.25rem;
+    }
+
+    .logoSub {
+        font-size: 0.6875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .navContainer {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .logoMain {
+        font-size: 1.125rem;
+    }
+
+    .logoSub {
+        font-size: 0.625rem;
+    }
+}
+
+/* Dark Mode Navigation */
+[data-theme="dark"] .nav {
+    background: rgba(26, 35, 58, 0.95);
+}
+
+[data-theme="dark"] .scrolled {
+    background: rgba(26, 35, 58, 0.98);
+}
+
+[data-theme="dark"] .logoMain {
+    color: var(--color-ivory);
+}
+
+[data-theme="dark"] .navLink {
+    color: rgba(253, 252, 248, 0.8);
+}
+
+[data-theme="dark"] .navLink:hover {
+    color: var(--color-gold);
+}
