@@ -8,7 +8,8 @@ export const translations = {
             portfolio: 'Portofolio',
             calculator: 'Kalkulator',
             contact: 'Kontak',
-            letsTalk: "Let's Talk"
+            letsTalk: "Let's Talk",
+            cta: 'Konsultasi Gratis'
         },
 
         // Hero Section
@@ -193,7 +194,8 @@ export const translations = {
             portfolio: 'Portfolio',
             calculator: 'Calculator',
             contact: 'Contact',
-            letsTalk: "Let's Talk"
+            letsTalk: "Let's Talk",
+            cta: 'Free Consultation'
         },
 
         // Hero Section
