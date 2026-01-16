@@ -1,0 +1,18 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#1A233A"/>
+  
+  <!-- Subtle border -->
+  <rect x="12" y="12" width="488" height="488" fill="none" stroke="#C5A059" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Letter E -->
+  <text 
+    x="256" 
+    y="340" 
+    font-family="Georgia, 'Times New Roman', serif" 
+    font-size="320" 
+    font-weight="700" 
+    fill="#C5A059" 
+    text-anchor="middle"
+    style="text-shadow: 0 0 20px rgba(197, 160, 89, 0.5)">E</text>
+</svg>

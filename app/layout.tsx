@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LanguageProvider } from '@/components/LanguageProvider';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import PreLoader from '@/components/PreLoader';
 
 const cormorant = Cormorant_Garamond({
   weight: ['300', '400', '500', '600', '700'],
@@ -48,6 +49,13 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: "Eugene's Atelier",
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon.svg', type: 'image/svg+xml', sizes: '512x512' }
+    ],
+    apple: '/icon.svg',
+  },
 };
 
 export const viewport: Viewport = {
@@ -65,12 +73,13 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
       </head>
       <body>
         <ThemeProvider>
           <LanguageProvider>
+            <PreLoader />
             {children}
             <WhatsAppButton phoneNumber="6283817523403" />
           </LanguageProvider>
